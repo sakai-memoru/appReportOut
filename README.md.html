@@ -1,0 +1,224 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="mded-output-date" content="2020/06/14 22:27:30">
+<title>README.md</title>
+<META http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+body {
+color: #000000;
+background-color: #FFFFFF;
+font-family: ＭＳ ゴシック;
+font-size: 11pt;
+}
+h1 {
+background-color: #80FFFF;
+font-size: 200%;
+border-left: 3pt #8080FF solid;
+}
+h2 {
+background-color: #C6FFFF;
+font-size: 120%;
+border-left: 2pt #8080FF solid;
+}
+h3 {
+font-size: 100%;
+border-bottom: 1pt #0000A0 solid;
+}
+h4 {
+font-size: 100%;
+}
+h5 {
+font-size: 100%;
+}
+h6 {
+font-size: 100%;
+}
+blockquote p,blockquote ol,blockquote ul,blockquote li {
+background-color: #FFFF80;
+}
+blockquote {
+background-color: #FFFF80;
+}
+pre {
+background-color: #EFEFEF;
+font-family: Consolas;
+}
+dt {
+color: #FFFFFF;
+background-color: #000080;
+}
+dd {
+background-color: #FAFAFA;
+}
+th {
+padding:0.3em;
+border: 1px #000000 solid;
+}
+td {
+padding:0.3em;
+border: 1px #000000 solid;
+}
+table.markdown {
+background-color: #F0FBFB;
+border: 1px #000000 solid;
+table-layout: auto;
+border-collapse: collapse;
+border-spacing: 0;
+empty-cells: show;
+}
+a {
+color: #FFFFFF;
+background-color: #800000;
+}
+code {
+background-color: #80FF80;
+}
+--></style>
+</head>
+<body>
+<div class="markdown-content"><a name="toc-top"></a>
+<a name="toc-1"></a><h1>[Excel VBA] appReportOut : 帳票レイアウトからHTMLテンプレートを生成するツール</h1>
+
+<a name="toc-1-1"></a><h2>overveiw :</h2>
+
+<ul><li>Excelで設計した帳票レイアウトから、HTMLを出力する設計補助ツール(VBA Excel)。HTMLでReport画面をプロトタイプとして作成する際に利用する。
+<li>帳票レイアウト定義書から、ひな形のHTMLテンプレートを生成することができる。定義情報は、JSONファイルにも出力できる。
+<li>帳票HTMLテンプレート(report)に、JSONで設定したデータ値を、挿し込み、静的HTMLを生成する。
+</ul>
+<a name="toc-1-1-1"></a><h3>機能 :</h3>
+<ul><li>Excelにて、帳票レイアウトを作成し、指定フォルダ（input folder)に配置する。
+<li>メニューより、以下の機能を利用する。
+<li><strong>Output JSON &nbsp;Def</strong>帳票レイアウトにて定義した情報をもとに、定義情報をJSONファイルに出力する。
+<li><strong>Generate HTML/CSS Template</strong>帳票レイアウトにて定義した情報をもとに、プロトタイプ用の帳票テンプレート(HTML/CSS)を生成する。(CSS Grid形式)
+<li><strong>Dump Simple JSON Def</strong>帳票レイアウトに、外部ファイル(JSON)で定義した入力データを挿し込み、PDF(Excel)を生成する。
+<li><p><strong>Dump Def</strong>Layout確認のようための定義情報を出力する。<br>
+
+</p><li><p><strong>Batch機能</strong> : renderTemplate.js
+<ul><li>Templateに、JSONで定義したデータ値を差し込み、静的なHTMLを生成する。
+</ul></p></ul>
+<a name="toc-1-2"></a><h2>Installation :</h2>
+
+<ul><li><p>GitHubより、Cloneする。<br>
+
+</p><li><p>参照設定が必要。
+</p></ul>
+<p><img src="https://gyazo.com/7d30f2387e7818067fd7596a82e507e9.png" alt="image">
+</p>
+<ul><li>Excelで生成されたHTMLを一部加工のために、nodejsで作成したバッチアプリを利用している。実行には、nodejsがインストールされていること。以下、npmで、利用するmoduleをインストールする。
+</ul>
+<pre>$ npm install
+$ node ./js/index.js
+Usage:
+        index.js --run [--tempdir &lt;temp_folder&gt;] [--tempfile &lt;temp_file&gt;] [--output &lt;output_folder&gt; ]
+        index.js -h | --help | --version]
+</pre>
+
+<a name="toc-1-3"></a><h2>Usage :</h2>
+<ul><li>アプリは以下。
+<li>アプリ本体 &nbsp;：appReportDef.xlsm
+<ul><li>Batch
+<li>ProcessForReportSheet
+</ul><li>アプリconfig：config.json
+<li>定義情報取得form：forms/__TRANS_REPORTS__.xlsm
+<ul><li>GetReportDef
+<li>GetDefDump
+</ul><li><p>定義情報取得config：forms/__TRANS_REPORTS__.config.json<br>
+
+</p><li><p>appReporDef.xlsmを開く。Menuより起動する。
+</p></ul>
+<p><img src="https://gyazo.com/ddeefb0aaea9ff952dbcf095fda9d1ee.png" alt="menu">
+</p>
+<ul><li>静的HTML生成バッチは、以下で起動。(起動時のConfigを、<code>./config/default.json</code>に設定する必要あり)
+</ul>
+<pre> 
+$ node ./js/renderTemplate.js --run
+ 
+</pre>
+<br>
+
+<a name="toc-1-3-2"></a><h3>初期コンフィグ設定 :</h3>
+
+<pre>{
+    "BASE_FOLDER": "",
+    "INPUT_FOLDER": "input",
+    "OUTPUT_FOLDER": "output",
+    "TEMP_FOLDER": "input/temp",
+    "BACKUP_FOLDER": "input/backup",
+    "FORM_FOLDER": "reports",
+    "DATA_FOLDER": "data",
+    "BACKUP_DATA_FOLDER": "data/backup",
+    "REPORT_DEF": {
+        "SHEET_TYPE": "REPORT",
+        "INPUT_LIKE": "*.xlsx",
+        "FORM_FILE": "__OUT_REPORT__.xlsm",
+        "FORM_SHEET": "report",
+        "DATA_LIKE": "*.json",
+        "MACRO_GET_METHOD": "GetDef",
+        "MACRO_OUT_METHOD": "OutputTemplate",
+        "MACRO_OUTHTML_METHOD": "SaveAsHtmlTemplate",
+        "MACRO_DUMP_METHOD": "DumpSimpleJson"
+    },
+    "CONTROL_PREFIX": "__",
+    "SOURCE_FROM": "_source",
+    "APP_NAME" : "appReportDef"
+}
+</pre>
+<a name="toc-1-3-3"></a><h3>Environment</h3>
+
+<p><img src="https://gyazo.com/689b017e9164132a43b52cab47b46abf.png" alt="env">
+</p><br>
+
+<a name="toc-1-4"></a><h2>Execution sample</h2>
+
+<ul><li>Excel Layout : input/RequestSheet.xlsx
+</ul>
+<p><img src="https://gyazo.com/0bc44a823a55c603575406402ba17025.png" alt="layout">
+</p>
+<ul><li>HTML Layout : output/RequestSheet_Sheet_200612210921/templ.table.html
+</ul>
+<p><img src="https://gyazo.com/95754c949c8b2a8dda95e1f914d6ce09.png" alt="template">
+</p>
+<ul><li>HTML Rendered : data/RequestSheet_Sheet_200612210921/table0_001.html
+</ul>
+<p><img src="https://gyazo.com/e7655f2d828d2cd16733a03fab52259f.png" alt="rendered">
+</p>
+<a name="toc-1-5"></a><h2>application I/F</h2>
+<pre>Public Function Batch( _
+        ByVal datatype As String, _
+        Optional ByVal outTemplOn As Variant = False, _
+        Optional ByVal outTemplHtmlOn As Variant = False, _
+        Optional ByVal dumpOn As Variant = False, _
+        Optional ByVal moveOn As Variant = False _
+    ) As Variant
+'''' **********************************************
+'' @function batch
+'' @param datatype {String} 処理データタイプ
+''        config.jsonのキー "REPORT_DEF"
+'' @param outTemplOn {Variant&lt;boolean&gt;}
+''            Template出力flag
+'' @param outTemplHtmlOn {Variant&lt;boolean&gt;}
+''            簡易Template出力flag
+'' @param dumpOn {Variant&lt;boolean&gt;}
+''            Dump JSON出力flag
+'' @param moveOn  {Variant&lt;boolean&gt;}
+''            Inputファイル移動flag
+''
+</pre>
+<a name="toc-1-6"></a><h2>note :</h2>
+<ul><li>落ち着いたら、もう少し記述を追加します。
+</ul>
+<a name="toc-1-7"></a><h2>reference :</h2>
+
+<ul><li>以下の外部ライブラリを使用しています。
+<li>VBA-JSON : JsonConverter.bas
+<ul><li>https://github.com/VBA-tools/VBA-JSON
+</ul><li>MiniTemplator
+<ul><li>https://www.source-code.biz/MiniTemplator/
+</ul></ul>
+<p>// --- end of README.md
+</p>
+<hr>Output by WZ Markdown Editor (Trial)<br></div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+    "COMMON_FIELD": [
+        "SystemId", "SystemName", "DocCd", "DocName", "created", "updated","Class_Id","Class_Name","Package_Id", "SheetVersion"
+    ],
+    "SCREEN_FIELD": [
+        "PageTitle", "UrlBar"
+    ],
+    "TARGET_NAMEDRANGE": "layout",
+    "OUTPUT_FOLDER": "../output",
+    "TEMP_FOLDER": "../input/temp",
+    "APP_NAME": "OutReport"
+}

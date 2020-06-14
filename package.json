@@ -1,0 +1,26 @@
+{
+  "name": "npm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node ./js/renderTempate.js --run",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sakai-memoru",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "config": "^3.3.1",
+    "docopt": "^0.6.2",
+    "glob": "^7.1.6",
+    "globby": "^11.0.1",
+    "handlebars": "^4.7.6",
+    "iconv-lite": "^0.6.0",
+    "jsonfile": "^6.0.1",
+    "log4js": "^6.3.0",
+    "node-localstorage": "^2.1.6",
+    "ts-node": "^8.10.2",
+    "xregexp": "^4.3.0"
+  }
+}

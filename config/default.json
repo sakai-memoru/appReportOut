@@ -1,0 +1,14 @@
+{
+    "CONF" : {
+        "BASE_FOLDER": "", 
+        "OUTPUT_FOLDER": "..//output",
+        "OUTPUT_FILE": "templ.table.html",
+        "TARGET_FOLDER" : "..//input//temp//RequestSheet_Sheet_200612210921//Sheet_files",
+        "TARGET_FILE" : "sheet001.html",
+        "DATA_FOLDER": "..//data", 
+        "DATA_FILELIKE": "*.json", 
+        "MERGED_FOLDER": "..//data", 
+        "MERGED_FILE_BASE": "table", 
+        "APP_DESCRIPTION": "Generate Html Template From Xls."    
+    }
+}

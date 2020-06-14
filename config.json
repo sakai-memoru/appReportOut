@@ -1,0 +1,24 @@
+{
+    "BASE_FOLDER": "",
+    "INPUT_FOLDER": "input",
+    "OUTPUT_FOLDER": "output",
+    "TEMP_FOLDER": "input/temp",
+    "BACKUP_FOLDER": "input/backup",
+    "FORM_FOLDER": "reports",
+    "DATA_FOLDER": "data",
+    "BACKUP_DATA_FOLDER": "data/backup",
+    "REPORT_DEF": {
+        "SHEET_TYPE": "REPORT",
+        "INPUT_LIKE": "*.xlsx",
+        "FORM_FILE": "__OUT_REPORT__.xlsm",
+        "FORM_SHEET": "report",
+        "DATA_LIKE": "*.json",
+        "MACRO_GET_METHOD": "GetDef",
+        "MACRO_OUT_METHOD": "OutputTemplate",
+        "MACRO_OUTHTML_METHOD": "SaveAsHtmlTemplate",
+        "MACRO_DUMP_METHOD": "DumpSimpleJson"
+    },
+    "CONTROL_PREFIX": "__",
+    "SOURCE_FROM": "_source",
+    "APP_NAME" : "appReportDef"
+}
