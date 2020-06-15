@@ -44,8 +44,8 @@ Usage:
   - 定義情報取得form：reports/\_\_OUT_REPORTS__.xlsm  
     + OutReport.GetDef  
     + ~~OutReport.OutTemplate~~ (NOT AVAILABLE)
-    + OutReport.SaveAsHtmlTemplate  
     + OutReport.DumpSimpleJson
+    + OutReport.SaveAsHtmlTemplate  
   - 定義情報取得config：reports/\_\_TRANS_REPORTS__.config.json 
 
 - appReporDef.xlsmを開く。Menuより起動する。 
