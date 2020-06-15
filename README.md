@@ -34,6 +34,32 @@ Usage:
         index.js --run [--tempdir <temp_folder>] [--tempfile <temp_file>] [--output <output_folder> ]
         index.js -h | --help | --version]
 ```
+### 実行環境
+- Microsoft Excel  
+![excel](https://gyazo.com/0208cfb4b0e4c7e9494f35502677af34.png)  
+
+- nodejs, typescript, powershell  
+```
+PS G:\Users\sakai> node --version
+v13.8.0
+PS G:\Users\sakai> npm --version
+6.13.6
+PS G:\Users\sakai> tsc --version
+Version 3.9.5
+PS G:\Users\sakai> $PSVersionTable
+
+Name                           Value
+----                           -----
+PSVersion                      5.1.17134.858
+PSEdition                      Desktop
+PSCompatibleVersions           {1.0, 2.0, 3.0, 4.0...}
+BuildVersion                   10.0.17134.858
+CLRVersion                     4.0.30319.42000
+WSManStackVersion              3.0
+PSRemotingProtocolVersion      2.3
+SerializationVersion           1.1.0.1
+```  
+
 
 ## Usage :
 - アプリは以下。
