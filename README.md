@@ -12,7 +12,7 @@
   + 【Output JSON  Def】帳票レイアウトにて定義した情報をもとに、定義情報をJSONファイルに出力する。  
   + 【Generate HTML/CSS Template】帳票レイアウトにて定義した情報をもとに、プロトタイプ用の帳票テンプレート(HTML/CSS)を生成する。(CSS Grid形式)  
   + 【Dump Simple JSON Def】帳票レイアウトに、外部ファイル(JSON)で定義した入力データを挿し込み、PDF(Excel)を生成する。  
-  + 【Dump Def】Layout確認のようための定義情報を出力する。
+  + 【Dump Def】Layout確認のための定義情報を出力する。
 
 - 【Batch機能】 : renderTemplate.js
     + Templateに、JSONで定義したデータ値を差し込み、静的なHTMLを生成する。
