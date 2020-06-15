@@ -37,14 +37,16 @@ Usage:
 
 ## Usage :
 - アプリは以下。
-  - アプリ本体  ：appReportDef.xlsm  
-    + Batch  
-      - ProcessForReportSheet
+  - アプリ本体  ：appReportOut.xlsm  
+    + ReportDefMain.Batch  
+      - ReportDefMain.ProcessForReportSheet
   - アプリconfig：config.json  
-  - 定義情報取得form：forms/\_\_TRANS_REPORTS__.xlsm  
-    + GetReportDef
-    + GetDefDump  
-  - 定義情報取得config：forms/\_\_TRANS_REPORTS__.config.json 
+  - 定義情報取得form：reports/\_\_OUT_REPORTS__.xlsm  
+    + OutReport.GetDef  
+    + ~~OutReport.OutTemplate~~ (NOT AVAILABLE)
+    + OutReport.SaveAsHtmlTemplate  
+    + OutReport.DumpSimpleJson
+  - 定義情報取得config：reports/\_\_TRANS_REPORTS__.config.json 
 
 - appReporDef.xlsmを開く。Menuより起動する。 
 
