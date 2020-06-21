@@ -14,16 +14,21 @@
   + 【Dump Simple JSON Def】Layout確認のための定義情報を出力する。  
   + 【Generate Easy Template】帳票レイアウトより、Excel 標準でHTMLファイル保存によりできるHTMLをTemplateとして生成する。
 
-- 【Batch機能】 : renderTemplate.js
+- 【Batch機能】 : ./js/renderTemplate.js
     + Templateに、JSONで定義したデータ値を差し込み、静的なHTMLを生成する。
 
 ## Installation :
 
+### Excel VBA tool
+
 - GitHubより、Cloneする。  
+    + https://github.com/sakai-memoru/appReportOut 
 
 - 参照設定が必要。  
 
 ![image](https://gyazo.com/7d30f2387e7818067fd7596a82e507e9.png) 
+
+### nodejs tool
 
 - Excelで生成されたHTMLを一部加工のために、nodejsで作成したバッチアプリを利用している。実行には、nodejsがインストールされていること。以下、npmで、利用するmoduleをインストールする。  
 
@@ -63,22 +68,21 @@ SerializationVersion           1.1.0.1
 
 ## Usage :
 - アプリは以下。
-  - アプリ本体  ：appReportOut.xlsm  
-    + ReportDefMain.Batch  
-      - ReportDefMain.ProcessForReportSheet
+    - アプリ本体  ：appReportDef.xlsm  
+        + Batch  
+            - ProcessForReportSheet
   - アプリconfig：config.json  
-  - 定義情報取得form：reports/\_\_OUT_REPORTS__.xlsm  
-    + OutReport.GetDef  
-    + ~~OutReport.OutTemplate~~ (NOT AVAILABLE)
-    + OutReport.DumpSimpleJson
-    + OutReport.SaveAsHtmlTemplate  
-  - 定義情報取得config：reports/\_\_TRANS_REPORTS__.config.json 
+  - 定義情報取得form：forms/\_\_TRANS_REPORTS__.xlsm  
+      + GetDef
+      + GetSimpleJson  
+      + SaveAsHtmlTemplate 
+  - 定義情報取得config：forms/\_\_TRANS_REPORTS__.config.json 
 
 - appReporDef.xlsmを開く。Menuより起動する。 
 
 ![menu](https://gyazo.com/ddeefb0aaea9ff952dbcf095fda9d1ee.png)  
 
-- 静的HTML生成バッチは、以下で起動。(起動時のConfigを、`./config/default.json`に設定する必要あり)
+- 静的HTML生成バッチ(./js/rederTemplate.js)は、以下で起動。(起動時のConfigを、`./config/default.json`に設定する必要あり)
 
 ```
  
@@ -117,7 +121,7 @@ $ node ./js/renderTemplate.js --run
 ```
 ### Environment
 
-![env](https://gyazo.com/77fcdd24660acfc1b477ab985861c2a7.png)
+![env](https://gyazo.com/e7635f7e49ef29455e5e1b88461da28c.png)
 
 
 ## Execution sample

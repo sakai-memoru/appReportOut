@@ -1,0 +1,36 @@
+/* GLOBAL STYLES */
+
+* {
+box-sizing: border-box;
+}
+
+body {
+background-color: #aaaaaa;
+background-size: 340px, auto;
+margin: 50px;
+}
+
+/* Each item in the grid contains numbers */
+.item {
+/* Center the contents of the grid items. Making each grid item a Flex Container */
+display: flex;
+
+/* Horizontal and Vertical centering */
+justify-content: center;
+align-items: center;
+border: 1px dotted #87b5ff;
+border-radius: 3px;
+color: gray;
+font-size: x-small;
+font-family: sans-serif;
+font-weight: normal;
+background-color: whitesmoke 
+}
+
+.grid-layout {
+display: grid;
+grid-template-columns: repeat(35, 20px);
+grid-template-rows: repeat(30, 35px);
+grid-gap: 5px;
+grid-auto-rows: 60px;
+}
